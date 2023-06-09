@@ -19,3 +19,6 @@
 # User-specific files ----
 README.html
 inst/doc
+
+# Privacy ----
+data/raw-data/data-forms-*
