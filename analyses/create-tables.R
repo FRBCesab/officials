@@ -91,8 +91,11 @@ for (j in 1:length(classes)) {
   
   ## Export list of barplots ----
   
+  # pop_up_graph <- leafpop::popupGraph(list_of_tables, type = "html", 
+  #                                     width = 1150, height = 650)
+  
   pop_up_graph <- leafpop::popupGraph(list_of_tables, type = "html", 
-                                      width = 1150, height = 650)
+                                      width = 1000, height = 500)
   
   names(pop_up_graph) <- list_of_dep$"department"
   
