@@ -341,7 +341,7 @@ labels_resources <- sprintf(
 
 map <- leaflet::leaflet() |> 
   
-  leaflet::setView(lng = 2.25, lat = 46.50, zoom = 5.75)  |> 
+  leaflet::setView(lng = 2.25, lat = 46.50, zoom = 5.50)  |> 
 
   leafem::garnishMap(
     leaflet::addPolygons, data = fra, 
