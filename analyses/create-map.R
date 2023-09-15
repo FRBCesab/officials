@@ -341,8 +341,9 @@ labels_resources <- sprintf(
 
 map <- leaflet::leaflet() |> 
   
-  leaflet::setView(lng = 2.25, lat = 46.50, zoom = 5.50)  |> 
-
+  leaflet::setView(lng = 2.25, lat = 46.50, zoom = 5.25)  |> 
+  leaflet::fitBounds(-5.143751, 41.123952, 9.560416, 51.089397) |> 
+  
   leafem::garnishMap(
     leaflet::addPolygons, data = fra, 
     group = 'Climat', weight = 1.0, smoothFactor = 0.5, 
