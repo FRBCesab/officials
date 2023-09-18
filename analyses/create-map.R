@@ -339,9 +339,15 @@ labels_resources <- sprintf(
 
 ## Map ----
 
-map <- leaflet::leaflet() |> 
+map <- leaflet::leaflet(
+  options = leaflet::leafletOptions(zoomControl     = FALSE, 
+                                    dragging        = FALSE,
+                                    minZoom         = 5.85, 
+                                    maxZoom         = 5.85)) |> 
   
-  leaflet::setView(lng = 2.25, lat = 46.50, zoom = 5.25)  |> 
+  leaflet::setView(lng     = 2.25, 
+                   lat     = 46.50, 
+                   zoom    = 5.85)  |> 
   leaflet::fitBounds(-5.143751, 41.123952, 9.560416, 51.089397) |> 
   
   leafem::garnishMap(
@@ -389,15 +395,22 @@ map <- leaflet::leaflet() |>
       direction = "auto"),
     popup = bars_resources) |> 
   
-  leaflet::addEasyButton(
-    leaflet::easyButton(
-      icon = 'fa-globe', title = 'Zoom initial',
-      onClick = leaflet::JS('function(btn){ location.reload(); }'))) |> 
+  # leaflet::addEasyButton(
+  #   leaflet::easyButton(
+  #     icon = 'fa-globe', title = 'Zoom initial',
+  #     onClick = leaflet::JS('function(btn){ location.reload(); }'))) |>
   
   leaflet::addLayersControl(
     baseGroups = c("Climat", "Biodiversité", "Ressources naturelles"),
-    options = leaflet::layersControlOptions(collapsed = TRUE),
+    options = leaflet::layersControlOptions(doubleClickZoom = FALSE,
+                                            collapsed       = FALSE,
+                                            zoomControl     = FALSE,
+                                            dragging        = FALSE,
+                                            minZoom         = 1, 
+                                            maxZoom         = 1),
     position = 'topleft')
+  
+
 
 
 
@@ -414,5 +427,10 @@ html[grep('id=\"htmlwidget-', html)] <-
   gsub('width:100%;', 
        'width:100%;background-color:white;', 
        html[grep('id=\"htmlwidget-', html)])
+# 
+# html[grep('body\\{background-color:white;\\}', html)] <-
+#   gsub('body\\{background-color:white;\\}', 
+#        'body{background-color:white;}.leaflet-control-zoom{display:none;}',
+#        html[grep('body\\{background-color:white;\\}', html)])
 
 cat(paste0(html, collapse = "\n"), file = here::here("content", "core.html"))
