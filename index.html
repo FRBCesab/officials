@@ -19,17 +19,31 @@
     html,
     body,
     .container-fluid {
-      background-color: #212121;
-      color: white;
+      background-color: white;
+      color: #212121;
       min-width: 100%;
       font-family: "Roboto";
     }
 
     a, a:hover, a:focus {
-      color: white;
+      color: #212121;
     }
 
-    .leaflet-container { background-color:rgba(0, 0, 0, 0); }
+    .iframe { background-color:red; border:2px solid #cccccc; border-radius: 5px;}
+    
+    h1 {
+      color: #303030;
+      font-family: Roboto;
+      font-weight: 400;
+      margin-bottom: 20px;
+      font-size: 2.6em;  
+    }
+    
+    p {
+      line-height: 1.6em;
+      font-size: 15px;
+    }
+    
 
   </style>
 
@@ -39,19 +53,34 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6" style="text-align:left;">
-        <h4>DRAFT</h4>
-        <!--<h6 style="font-weight:200;margin-top:0px;padding-top:0px;">Click on department to see detail (only for votes cast)</h6>-->
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="text-align:left;">
+        <h1>Formation des agents de la fonction publique</h1>
+        <p>
+          La carte ci-dessous répertorie les 1 700 scientifiques ayant répondu
+          à l'appel à manifestation d’intérêt et qui sont disponibles pour 
+          assurer des conférences-débats sur les trois types d’enjeux : climat, 
+          biodiversité, ressources naturelles.
+        </p>
+        <p>
+          <b>Comment utiliser la carte?</b><br>
+          <ul>
+          <li>Sélectionnez le type d'enjeu en haut à gauche de la carte</li>
+          <li>Cliquez sur le globe en haut à gauche pour recentrer la carte</li>
+          <li>Cliquez sur un département pour afficher la liste d'experts</li>
+          <li>Cliquez et maintenez le clic pour déplacer la carte et les tableaux </li>
+          </ul>
+        </p>
+        <p></p>
       </div>
-      <div class="col-md-6" style="text-align:right;">
-        <a href="https://github.com/frbcesab/officials"><h5 style="font-weight:300;vertical-align:middle;" class="fa fa-github fa-2x" aria-hidden="true"></h5></a>
-        <h6 style="font-weight:200;margin-top:0px;padding-top:0px;">Auteur : <a href="https://github.com/ahasverus">Nicolas Casajus</a></h6>
-      </div>
+      <div class="col-md-2"></div>
     </div>
     <div class="row">
-      <div class="col-md-12" style="height:90vh;">
-        <iframe src="content/core.html" id="core" class="iframe" name="info" width="100%" height="100%" frameBorder="0" seamless="" style="background-color:#212121;"></iframe>
+      <div class="col-md-1" style="height:90vh;"></div>
+      <div class="col-md-10" style="height:90vh;">
+        <iframe src="content/core.html" id="core" class="iframe" name="info" width="100%" height="100%" frameBorder="0" seamless="" style="background-color:#212121; margin-top:20px;"></iframe>
       </div>
+      <div class="col-md-1" style="height:90vh;"></div>
     </div>
   </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

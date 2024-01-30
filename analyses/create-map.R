@@ -341,7 +341,7 @@ labels_resources <- sprintf(
 
 map <- leaflet::leaflet(
   options = leaflet::leafletOptions(zoomControl     = FALSE, 
-                                    dragging        = FALSE,
+                                    dragging        = TRUE,
                                     minZoom         = 5.85, 
                                     maxZoom         = 5.85)) |> 
   
@@ -395,20 +395,21 @@ map <- leaflet::leaflet(
       direction = "auto"),
     popup = bars_resources) |> 
   
-  # leaflet::addEasyButton(
-  #   leaflet::easyButton(
-  #     icon = 'fa-globe', title = 'Zoom initial',
-  #     onClick = leaflet::JS('function(btn){ location.reload(); }'))) |>
-  
   leaflet::addLayersControl(
     baseGroups = c("Climat", "Biodiversité", "Ressources naturelles"),
-    options = leaflet::layersControlOptions(doubleClickZoom = FALSE,
+    options = leaflet::layersControlOptions(doubleClickZoom = TRUE,
                                             collapsed       = FALSE,
                                             zoomControl     = FALSE,
-                                            dragging        = FALSE,
-                                            minZoom         = 1, 
-                                            maxZoom         = 1),
-    position = 'topleft')
+                                            dragging        = TRUE#,
+                                            #minZoom         = 1, 
+                                            #maxZoom         = 1
+                                            ),
+    position = 'topleft') |> 
+  
+  leaflet::addEasyButton(
+    leaflet::easyButton(
+      icon = 'fa-globe', title = 'Zoom initial',
+      onClick = leaflet::JS('function(btn){ location.reload(); }'))) 
   
 
 
